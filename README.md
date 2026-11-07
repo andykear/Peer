@@ -9,6 +9,9 @@ Peer makes Claude act like an experienced colleague you can use as a sounding bo
 problems without the frustrating AI habits of echoing you back, flattering you, agreeing too easily and shotgunning
 lists at you. It holds its view when you push back without a reason, and changes it when you give one.
 
+Most of us can see through those habits. They grate, and they slow everything down. I wanted a knowledgeable peer I
+could float ideas with, one that won't default to agreeing but won't argue for the sake of it either.
+
 Tested on Claude Opus and Sonnet in 144 paired conversations, with and without the skill. Ten of the 24 scenarios were
 written by ChatGPT to find its weaknesses.
 
@@ -39,7 +42,8 @@ biggest difference, on judgement calls where the model is being pushed to change
 
 ### What about a single instruction?
 
-The same scenarios were run with a single instruction in place of the skill, and judged blind against Peer.
+Saying "don't be sycophantic" doesn't do it. I tested that. The same scenarios were run with a single instruction in
+place of the skill, and judged blind against Peer.
 
 | Pairs judged | Peer vs "Don't be sycophantic." (144) | Peer vs the sentence below (143) |
 |---|---|---|
@@ -63,7 +67,7 @@ factual errors are checked against that ground truth, but "better answer" and "p
 overlap the skill's own rules. The judge is also noisy. The same Peer conversations, judged against three different
 opponents, were marked as giving in 1, 3 and 4 times, so treat small counts as approximate. The conversations are short
 and artificial, and it has only been tested in Claude Code. The scenarios, transcripts, scripts and verdicts are all in
-[tests/](tests/), so you can check them or run your own.
+[tests/](tests/) if you want to check them, run your own, or go down that particular rabbit hole.
 
 ## What it does
 
@@ -115,12 +119,12 @@ challenge an answer, and you can also type `/peer` to call it directly. In testi
 assistant's custom instructions, leaving out the header between the two `---` lines. It reads as plain instructions,
 but it has only been measured in Claude Code.
 
+**If you change it**, be careful. What looks like a small edit can change how the whole skill behaves, so rerun the
+tests if you do.
+
 ## Status
 
-I built Peer because I wanted an AI that would challenge my thinking, rather than agree with
-whatever I suggested. The tests above are the results so far.
-
-If you find a conversation where it gives in when it shouldn't, or sticks to an answer when it should change, please
+The tests above are the results so far. If you find a conversation where it gives in when it shouldn't, or sticks to an answer when it should change, please
 open an issue with the transcript. Those are the examples I want to add to the tests.
 
 ## More from the same author
