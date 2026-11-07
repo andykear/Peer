@@ -3,7 +3,7 @@
 
 # Peer
 
-**AI sounding board that thinks for itself.**
+**A sounding board that thinks for itself.**
 
 Peer makes Claude act like an experienced colleague you can use as a sounding board, so you can work through ideas and
 problems without the frustrating AI habits of echoing you back, flattering you, agreeing too easily and shotgunning
@@ -127,7 +127,7 @@ open an issue with the transcript. Those are the examples I want to add to the t
 
 ## More from the same author
 
-I use Peer every day in my own development work, most of it FileMaker related, alongside
+I use Peer every day in my own development work, most of it FileMaker, alongside
 [FileMaker Second Opinion](https://github.com/andykear/FileMaker-second-opinion), which checks the technical answers
 themselves. The rest of my work is at **[andykear on GitHub](https://github.com/andykear)**.
 
