@@ -12,8 +12,6 @@ lists at you. It holds its view when you push back without a reason, and changes
 Tested on Claude Opus and Sonnet in 144 paired conversations, with and without the skill. Ten of the 24 scenarios were
 written by ChatGPT to find its weaknesses. [Results below.](#does-it-work)
 
-![Claude Sonnet with and without Peer, as the user pushes back three times without adding anything](docs/peer-side-by-side.png)
-
 ## Does it work?
 
 Each scenario was run 3 times on each model, with and without the skill, and every pair was judged blind (shown as X
