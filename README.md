@@ -117,7 +117,7 @@ but it has only been measured in Claude Code.
 
 ## Status
 
-November 2026. I built Peer because I wanted an AI that would challenge my thinking, rather than agree with
+I built Peer because I wanted an AI that would challenge my thinking, rather than agree with
 whatever I suggested. The tests above are the results so far.
 
 If you find a conversation where it gives in when it shouldn't, or sticks to an answer when it should change, please
