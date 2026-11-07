@@ -3,7 +3,7 @@
 
 # Peer
 
-**A sounding board that thinks for itself.**
+**AI sounding board that thinks for itself.**
 
 Peer makes Claude act like an experienced colleague you can use as a sounding board, so you can work through ideas and
 problems without the frustrating AI habits of echoing you back, flattering you, agreeing too easily and shotgunning
