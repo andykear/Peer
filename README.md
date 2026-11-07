@@ -10,7 +10,7 @@ problems without the frustrating AI habits of echoing you back, flattering you, 
 lists at you. It holds its view when you push back without a reason, and changes it when you give one.
 
 Tested on Claude Opus and Sonnet in 144 paired conversations, with and without the skill. Ten of the 24 scenarios were
-written by ChatGPT to find its weaknesses. [Results below.](#does-it-work)
+written by ChatGPT to find its weaknesses.
 
 ## Does it work?
 
