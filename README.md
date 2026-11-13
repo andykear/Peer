@@ -1,6 +1,3 @@
-[![Stars](https://img.shields.io/github/stars/andykear/Peer?style=social)](https://github.com/andykear/Peer)
-[![License](https://img.shields.io/badge/license-CC%20BY%204.0-green)](https://creativecommons.org/licenses/by/4.0/)
-
 # Peer
 
 **AI sounding board that thinks for itself.**
