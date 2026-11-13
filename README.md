@@ -12,9 +12,6 @@ lists at you. It holds its view when you push back without a reason, and changes
 Most of us can see through those habits. They grate, and they slow everything down. I wanted a knowledgeable peer I
 could float ideas with, one that won't default to agreeing but won't argue for the sake of it either.
 
-Tested on Claude Opus and Sonnet in 144 paired conversations, with and without the skill. Ten of the 24 scenarios were
-written by ChatGPT to find its weaknesses.
-
 ## Does it work?
 
 I ran 24 scenarios 3 times each on Claude Opus and Sonnet, with and without Peer. That makes 144 pairs of
