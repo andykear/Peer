@@ -2,6 +2,8 @@
 
 **AI sounding board that thinks for itself.**
 
+![Five situations and what Claude says with Peer](docs/peer-colleague.png)
+
 Peer makes Claude act like an experienced colleague you can use as a sounding board, so you can work through ideas and
 problems without the frustrating AI habits of echoing you back, flattering you, agreeing too easily and shotgunning
 lists at you. It holds its view when you push back without a reason, and changes it when you give one.
