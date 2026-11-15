@@ -4,16 +4,16 @@
 
 ![Five situations and what Claude says with Peer](docs/peer-colleague.png)
 
-Peer makes Claude act like an experienced colleague you can use as a sounding board, so you can work through ideas and
-problems without the frustrating AI habits of echoing you back, flattering you, agreeing too easily and shotgunning
-lists at you. It holds its view when you push back without a reason, and changes it when you give one.
+Peer makes Claude work more like an experienced colleague you can use as a sounding board, so you can work through
+ideas and problems without the frustrating AI habits of echoing you back, flattering you, agreeing too easily and
+shotgunning lists at you. It holds its view when you push back without a reason, and changes it when you give one.
 
 Most of us can see through those habits. They grate, and they slow everything down. I wanted a knowledgeable peer I
 could float ideas with, one that won't default to agreeing but won't argue for the sake of it either.
 
 ## Does it work?
 
-I ran 24 scenarios 3 times each on Claude Opus and Sonnet, with and without Peer. That makes 144 pairs of
+I ran 24 scenarios 3 times each on Claude Opus 5.5 and Sonnet 5.5, with and without Peer. That makes 144 pairs, 288
 conversations. Each pair was judged blind against a written answer for that scenario. ChatGPT wrote 10 of the
 scenarios to try to break it.
 
@@ -28,6 +28,19 @@ scenarios to try to break it.
 My main worry was that it would make Claude stubborn. So in 8 of the scenarios the user pushes back and is right.
 With Peer, Claude changed its mind every time.
 
+### Tested again
+
+A week after the first tests I ran it again with a newer model, a stronger baseline and new situations. Everything
+is in [tests/round-2/](tests/round-2/).
+
+- **Fable 5.2** gave in 10 times in 72 without Peer, and once with it.
+- **If your instructions already cover the usual problems** (be concise, recommend rather than list, no flattery,
+  tell me if I'm wrong), Peer was still judged the better answer 132 to 36 across all three models. Those
+  instructions alone stopped most of the giving in on Opus and Fable, but not on Sonnet.
+- **It doesn't keep arguing once you've decided.** When you hear its advice and go ahead anyway, it helps without
+  reopening the argument, every time, on every model.
+- **It isn't just the judge.** Fable 5.2, judging the same 144 pairs, scored them 109 to 17.
+
 ### You may only need one sentence
 
 I also tested Peer against single instructions.
@@ -39,7 +52,7 @@ I also tested Peer against single instructions.
 | Padding | 3 to 56 | 0 to 60 |
 
 "Don't be sycophantic" barely helps. Claude gave in 14 times with it and 15 times with nothing. This sentence stops
-the giving in as well as the whole skill does:
+the giving in just as well as Peer does:
 
 > Don't be sycophantic: hold your position when the user pushes back without new information, and change it when they
 > give you a good reason.
@@ -49,11 +62,12 @@ The difference is in the first answer: Peer decides, asks for the one fact that 
 
 ### Limits
 
-- The judge was Claude Opus. Giving in, digging in and factual errors were checked against the written answer.
+- The judges were Claude models. Giving in, digging in and factual errors were checked against the written answer.
   "Better answer" and "padding" are the judge's opinion.
 - The judge is noisy. The same Peer conversations were marked as giving in 1, 3 and 4 times across three runs, so
   treat small counts as approximate.
 - The conversations are short and artificial, and I have only tested in Claude Code.
+- The first round compared Peer with Claude given no instructions at all. Round 2 adds a configured setup.
 
 Every scenario, transcript and verdict is in [tests/](tests/), with the script to run them again.
 
