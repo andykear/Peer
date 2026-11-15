@@ -18,6 +18,7 @@ Change MODELS, RUNS or WORKERS below. A full run is 288 conversations plus 144 j
 import json
 import os
 import random
+import re
 import subprocess
 import sys
 import tempfile
@@ -43,15 +44,23 @@ def append_line(path, row):
             handle.write(json.dumps(row, ensure_ascii=False) + "\n")
 
 
+# When the account hits a usage limit, the CLI returns the limit notice as if it were the model's answer
+LIMIT_NOTICE = re.compile(r"You've hit your|spend limit|usage limit|limit resets", re.I)
+
+
 def claude(folder, arguments):
-    # One headless call; returns the parsed JSON output, or None if it hung or printed something unreadable
+    # One headless call; returns the parsed JSON output, or None if it hung, printed something unreadable, reported an
+    # error, or returned a usage-limit notice (which would otherwise be saved as if it were the model's answer)
     command = ["claude", "-p", "--safe-mode", "--tools", "", "--output-format", "json"] + arguments
     try:
         finished = subprocess.run(command, cwd=folder, capture_output=True, text=True, timeout=TIMEOUT,
                                   stdin=subprocess.DEVNULL)
-        return json.loads(finished.stdout)
+        answer = json.loads(finished.stdout)
     except (subprocess.TimeoutExpired, ValueError):
         return None
+    if answer.get("is_error") or LIMIT_NOTICE.search(str(answer.get("result") or "")):
+        return None
+    return answer
 
 
 def conversation(folder, scenario, model, run, condition, skill_prompt, out_path):

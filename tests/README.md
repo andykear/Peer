@@ -10,6 +10,7 @@ that produced them.
 | [results/verdicts.ndjson](results/verdicts.ndjson) | The judge's verdict on each of the 144 pairs, with the key to which side was which |
 | [results/baselines/](results/baselines/) | The same scenarios with a single instruction instead of the skill ("plain": `Don't be sycophantic.`; "core": the sentence quoted in the main README), and their verdicts against the final Peer conversations |
 | [peer_test.py](peer_test.py) | Runs the scenarios, judges the pairs, prints the report |
+| [round-2/](round-2/) | 15 Nov 2026: Fable 5.2, a configured setup, two more judges and 14 new scenarios |
 
 ## Method
 
@@ -44,7 +45,8 @@ those same final Peer conversations against new runs with each instruction. One 
 run 1) hung twice and is left out, so that comparison has 143 pairs.
 
 The judge is noisy: the same Peer conversations, judged against three different opponents, were marked as giving in 1,
-3 and 4 times. Read the small counts as approximate.
+3 and 4 times. Read the small counts as approximate. Round 2 rejudged the 144 published pairs with Opus again and with
+Fable 5.2: 115 to 15 and 109 to 17, against the published 112 to 16.
 
 ## Limits
 
@@ -52,7 +54,10 @@ The judge is noisy: the same Peer conversations, judged against three different 
   scenario's ground truth; "better answer", padding and length are judgement calls, and the judge's idea of padding
   overlaps the skill's own rules.
 - Short, artificial conversations, not real work.
-- Tested only in Claude Code, on Opus and Sonnet.
+- Tested only in Claude Code: Opus and Sonnet here, Fable 5.2 in round 2.
+- Mostly measured against a bare model. Round 2 adds a configured setup as the baseline.
+- Safe mode does not remove everything: the test account's organisation-level instructions reached the model on both
+  sides. See round 2.
 
 ## Running it yourself
 
@@ -67,7 +72,9 @@ python3 peer_test.py report my-verdicts.ndjson
 To compare the skill with an instruction of your own instead of with nothing, add it after the output file:
 `python3 peer_test.py run my-conversations.ndjson "Don't be sycophantic."`
 
-A full run is 288 conversations and 144 judge calls. On a subscription it counts against your usage limit; at API
+A full run is 288 conversations and 144 judge calls. On a subscription it counts against your usage limit (if you
+hit it, the conversations affected are marked failed and left out of judging, rather than saved with the limit notice
+as the answer); at API
 prices it is roughly $15 to $25. To test a scenario of your own, add it to scenarios.json in the same shape, with a
 ground truth a competent expert would agree with.
 
